@@ -1,0 +1,44 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+using namespace std;
+
+bool resolverSistema(double A, double B, double C,
+                     double D, double E, double F,
+                     double &x, double &y)
+{
+    const double EPS = 1e-12;
+    // Pasamos las ecuaciones a la forma A*x + B*y = -C  y  D*x + E*y = -F
+    double det = A * E - B * D;
+    if (fabs(det) < EPS) return false; // determinante cero -> no solución única
+
+    double detX = (-C) * E - B * (-F);
+    double detY = A * (-F) - (-C) * D;
+    x = detX / det;
+    y = detY / det;
+    return true;
+}
+
+int main() {
+    double A, B, C, D, E, F;
+    cout << "Sistema:\n";
+    cout << "Ax + By + C = 0\n";
+    cout << "Dx + Ey + F = 0\n\n";
+
+    cout << "Ingrese A B C: ";
+    if (!(cin >> A >> B >> C)) return 1;
+    cout << "Ingrese D E F: ";
+    if (!(cin >> D >> E >> F)) return 1;
+
+    double x = 0.0, y = 0.0;
+    if (resolverSistema(A, B, C, D, E, F, x, y)) {
+        cout << fixed << setprecision(6);
+        cout << "Solucion unica:\n";
+        cout << "x = " << x << "\n";
+        cout << "y = " << y << "\n";
+    } else {
+        cout << "No hay solucion unica (determinante = 0).\n";
+    }
+
+    return 0;
+}
