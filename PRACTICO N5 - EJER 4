@@ -1,0 +1,42 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+double calcularPotencia(double x, int exp) {
+    double p = 1.0;
+    for (int i = 0; i < exp; ++i) p *= x;
+    return p;
+}
+
+double calcularFactorial(int n) {
+    double f = 1.0;
+    for (int i = 2; i <= n; ++i) f *= i;
+    return f;
+}
+
+double calcularSerie(double x, int N) {
+    double suma = 0.0;
+    for (int k = 1; k <= N; ++k) {
+        int expo = 2 * k - 1;                  
+        double termino = calcularPotencia(x, expo) 
+        if (k % 2 == 0) termino = -termino;    
+        suma += termino;
+    }
+    return suma;
+}
+
+int main() {
+    double x;
+    int N;
+
+    cout << "Ingrese x: ";
+    if (!(cin >> x)) return 1;
+    cout << "Ingrese N: ";
+    if (!(cin >> N) || N <= 0) return 1;
+
+    double resultado = calcularSerie(x, N);
+
+    cout << fixed << setprecision(6);
+    cout << "Suma de la serie (" << N << " terminos) = " << resultado << endl;
+    return 0;
+}
