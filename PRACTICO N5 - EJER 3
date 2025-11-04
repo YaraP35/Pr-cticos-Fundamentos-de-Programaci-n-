@@ -17,7 +17,7 @@ double calcularFactorial(int n) {
 double calcularSerie(double x, int N) {
     double suma = 0.0;
     for (int k = 1; k <= N; ++k) {
-        suma += calcularPotencia(x, k) / calcularFactorial(k);
+        suma += calcularPotencia(x, k) 
     }
     return suma;
 }
