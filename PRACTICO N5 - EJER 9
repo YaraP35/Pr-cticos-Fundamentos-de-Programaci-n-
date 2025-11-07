@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+int binarioADecimal(int binario) {
+    int decimal = 0, base = 1;
+    while (binario > 0) {
+        int ultimoDigito = binario % 10;
+        decimal += ultimoDigito * base;
+        base *= 2;
+        binario /= 10;
+    }
+    return decimal;
+}
+
+int main() {
+    int binario;
+    cout << "Ingrese un numero binario: ";
+    cin >> binario;
+
+    int decimal = binarioADecimal(binario);
+    cout << "El equivalente decimal es: " << decimal << endl;
+
+    return 0;
+}
