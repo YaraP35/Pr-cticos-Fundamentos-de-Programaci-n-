@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+unsigned long FAC(int n) {
+    unsigned long long f = 1;
+    for (int i = 2; i <= n; ++i) f *= i;
+    return f;
+}
+
+int main() {
+    int n, r;
+    
+    cout << "Ingrese n: ";
+    cin >> n;
+    cout << "Ingrese r: ";
+    cin >> r;
+    
+    unsigned long C = FAC(n) / (FAC(r) * FAC(n - r));
+    
+    cout << "C(" << n << ", " << r << ") = " << C << endl;
+    
+    return 0;
+}
