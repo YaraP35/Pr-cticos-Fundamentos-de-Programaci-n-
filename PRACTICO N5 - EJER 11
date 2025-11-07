@@ -1,0 +1,59 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+
+string unidades(int n) {
+    string u[] = {"", "uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve"};
+    return u[n];
+}
+
+string decenas(int n) {
+    string d[] = {"", "diez", "veinte", "treinta", "cuarenta", "cincuenta", "sesenta", "setenta", "ochenta", "noventa"};
+    return d[n];
+}
+
+string convertirParteEntera(int n) {
+    string resultado = "";
+    if (n >= 1000) {
+        if (n / 1000 == 1) resultado += "mil ";
+        else resultado += unidades(n / 1000) + " mil ";
+        n %= 1000;
+    }
+    if (n >= 100) {
+        if (n / 100 == 1) resultado += "cien ";
+        else {
+            string centenas[] = {"", "ciento", "doscientos", "trescientos", "cuatrocientos",
+                                "quinientos", "seiscientos", "setecientos", "ochocientos", "novecientos"};
+            resultado += centenas[n / 100] + " ";
+        }
+        n %= 100;
+    }
+    if (n >= 10) {
+        resultado += decenas(n / 10);
+        if (n % 10 != 0) resultado += " y ";
+        n %= 10;
+    }
+    if (n > 0) resultado += unidades(n);
+    return resultado;
+}
+
+int main() {
+    double R;
+    cout << "Ingrese un numero real (max 9999.99): ";
+    cin >> R;
+
+    if (R < 0 || R > 9999.99) {
+        cout << "Numero fuera de rango.\n";
+        return 1;
+    }
+
+    int parteEntera = static_cast<int>(R);
+    int decimales = static_cast<int>(round((R - parteEntera) * 100));
+
+    string textoEntero = convertirParteEntera(parteEntera);
+
+    cout << textoEntero << " " << (decimales < 10 ? "0" : "") << decimales << "/100 bolivianos" << endl;
+
+    return 0;
+}
