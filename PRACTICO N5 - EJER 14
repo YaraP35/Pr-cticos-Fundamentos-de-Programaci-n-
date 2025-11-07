@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+
+int diasMes(int mes, int anio) {
+    if (mes == 2) {
+        if ((anio % 400 == 0) || (anio % 4 == 0 && anio % 100 != 0))
+            return 29;
+        else
+            return 28;
+    }
+    if (mes == 4 || mes == 6 || mes == 9 || mes == 11)
+        return 30;
+    return 31;
+}
+
+int contarDias(int d, int m, int a) {
+    int total = 0;
+    for (int year = 0; year < a; ++year) {
+        total += 365;
+        if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0))
+            total += 1;
+    }
+    for (int month = 1; month < m; ++month) {
+        total += diasMes(month, a);
+    }
+    total += d;
+    return total;
+}
+
+int main() {
+    int d1, m1, a1, d2, m2, a2;
+    cout << "Ingrese fecha 1 (dia mes anio): ";
+    cin >> d1 >> m1 >> a1;
+    cout << "Ingrese fecha 2 (dia mes anio): ";
+    cin >> d2 >> m2 >> a2;
+
+    int dias1 = contarDias(d1, m1, a1);
+    int dias2 = contarDias(d2, m2, a2);
+
+    int diff = dias1 > dias2 ? dias1 - dias2 : dias2 - dias1;
+
+    cout << "Dias transcurridos: " << diff << endl;
+
+    return 0;
+}
