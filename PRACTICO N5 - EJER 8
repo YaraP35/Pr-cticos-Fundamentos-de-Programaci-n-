@@ -3,7 +3,7 @@
 using namespace std;
 
 void resolverCuadratica(double a, double b, double c) {
-    double d = b*b - 4*a*c; // discriminante
+    double d = b*b - 4*a*c; 
 
     if (a == 0) {
         if (b != 0)
