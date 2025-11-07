@@ -1,0 +1,37 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+void resolverCuadratica(double a, double b, double c) {
+    double d = b*b - 4*a*c; // discriminante
+
+    if (a == 0) {
+        if (b != 0)
+            cout << "Ecuacion lineal, x = " << -c / b << endl;
+        else
+            cout << "No es una ecuacion valida." << endl;
+        return;
+    }
+
+    if (d > 0) {
+        double x1 = (-b + sqrt(d)) / (2*a);
+        double x2 = (-b - sqrt(d)) / (2*a);
+        cout << "Raices reales: " << x1 << " y " << x2 << endl;
+    } else if (d == 0) {
+        double x = -b / (2*a);
+        cout << "Raiz doble: " << x << endl;
+    } else {
+        double real = -b / (2*a);
+        double imag = sqrt(-d) / (2*a);
+        cout << "Raices complejas: " << real << " + " << imag << "i y "
+             << real << " - " << imag << "i" << endl;
+    }
+}
+
+int main() {
+    double a, b, c;
+    cout << "Ingrese a, b y c: ";
+    cin >> a >> b >> c;
+    resolverCuadratica(a, b, c);
+    return 0;
+}
