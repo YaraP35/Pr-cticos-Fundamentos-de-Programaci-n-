@@ -1,0 +1,48 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+void ordenarDescendente(string alumnos[], float notas[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (notas[i] < notas[j]) {
+                // Intercambiar notas
+                float tempNota = notas[i];
+                notas[i] = notas[j];
+                notas[j] = tempNota;
+                
+                // Intercambiar alumnos
+                string tempAlumno = alumnos[i];
+                alumnos[i] = alumnos[j];
+                alumnos[j] = tempAlumno;
+            }
+        }
+    }
+}
+
+int main() {
+    int n;
+    cout << "Cantidad de alumnos: ";
+    cin >> n;
+    
+    string alumnos[100];
+    float notas[100];
+    
+    cout << "Ingrese nombres y notas:\n";
+    for (int i = 0; i < n; i++) {
+        cout << "Alumno " << i + 1 << ": ";
+        cin >> alumnos[i];
+        cout << "Nota: ";
+        cin >> notas[i];
+    }
+    
+    ordenarDescendente(alumnos, notas, n);
+    
+    cout << "\nLas tres mejores notas:\n";
+    int limite = (n < 3) ? n : 3; 
+    for (int i = 0; i < limite; i++) {
+        cout << i + 1 << ". " << alumnos[i] << " - Nota: " << notas[i] << endl;
+    }
+    
+    return 0;
+}
