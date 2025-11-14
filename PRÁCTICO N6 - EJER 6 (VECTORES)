@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+void promediosDeTres(float A[], int n, float P[], int &k) {
+    k = 0; 
+    for (int i = 0; i <= n - 3; i++) {
+        P[k] = (A[i] + A[i+1] + A[i+2]) / 3.0;
+        k++;
+    }
+}
+
+int main() {
+    int n;
+    cout << "Cantidad de elementos del vector: ";
+    cin >> n;
+
+    float A[100], P[100];
+    for (int i = 0; i < n; i++) {
+        cout << "A[" << i << "] = ";
+        cin >> A[i];
+    }
+
+    int k;
+    promediosDeTres(A, n, P, k);
+
+    cout << "Promedios de cada 3 elementos consecutivos:\n";
+    for (int i = 0; i < k; i++) {
+        cout << "P" << i+1 << " = " << P[i] << endl;
+    }
+
+    return 0;
+}
