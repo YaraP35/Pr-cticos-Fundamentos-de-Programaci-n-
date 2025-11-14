@@ -1,0 +1,63 @@
+#include <iostream>
+using namespace std;
+
+void intercalar(float A[], int n, float B[], int m, float C[], int &k) {
+    int i = 0, j = 0;
+    k = 0;
+
+    while (i < n && j < m) {
+        if (A[i] <= B[j]) {
+            C[k] = A[i];
+            i++;
+        } else {
+            C[k] = B[j];
+            j++;
+        }
+        k++;
+    }
+
+    while (i < n) {
+        C[k] = A[i];
+        i++;
+        k++;
+    }
+
+    while (j < m) {
+        C[k] = B[j];
+        j++;
+        k++;
+    }
+}
+
+int main() {
+    int n, m;
+    cout << "Cantidad de elementos de A (ordenado): ";
+    cin >> n;
+    cout << "Cantidad de elementos de B (ordenado): ";
+    cin >> m;
+
+    float A[100], B[100], C[200];
+
+    cout << "Elementos de A (en orden ascendente):\n";
+    for (int i = 0; i < n; i++) {
+        cout << "A[" << i << "] = ";
+        cin >> A[i];
+    }
+
+    cout << "Elementos de B (en orden ascendente):\n";
+    for (int i = 0; i < m; i++) {
+        cout << "B[" << i << "] = ";
+        cin >> B[i];
+    }
+
+    int k;
+    intercalar(A, n, B, m, C, k);
+
+    cout << "Vector C intercalado y ordenado:\n";
+    for (int i = 0; i < k; i++) {
+        cout << C[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
