@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+float promedio(float vec[], int n) {
+    float suma = 0;
+    for (int i = 0; i < n; i++) {
+        suma += vec[i];
+    }
+    return suma / n;
+}
+
+int main() {
+    int n;
+    cout << "Ingrese cantidad de elementos: ";
+    cin >> n;
+    
+    float vec[n];
+    cout << "Ingrese los elementos:\n";
+    for (int i = 0; i < n; i++) {
+        cin >> vec[i];
+    }
+    
+    cout << "Promedio: " << promedio(vec, n) << endl;
+    
+    return 0;
+}
