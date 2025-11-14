@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+
+void concatenar(float A[], int n, float B[], int m, float C[]) {
+    for (int i = 0; i < n; i++) {
+        C[i] = A[i];
+    }
+    for (int j = 0; j < m; j++) {
+        C[n + j] = B[j];
+    }
+}
+
+int main() {
+    int n, m;
+    cout << "Cantidad de elementos de A: ";
+    cin >> n;
+    cout << "Cantidad de elementos de B: ";
+    cin >> m;
+
+    float A[100], B[100], C[200];
+
+    cout << "Elementos de A:\n";
+    for (int i = 0; i < n; i++) {
+        cout << "A[" << i << "] = ";
+        cin >> A[i];
+    }
+
+    cout << "Elementos de B:\n";
+    for (int i = 0; i < m; i++) {
+        cout << "B[" << i << "] = ";
+        cin >> B[i];
+    }
+
+    concatenar(A, n, B, m, C);
+
+    cout << "Vector concatenado C:\n";
+    for (int i = 0; i < n + m; i++) {
+        cout << C[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
