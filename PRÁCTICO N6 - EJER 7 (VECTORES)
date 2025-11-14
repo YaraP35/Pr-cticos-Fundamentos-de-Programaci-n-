@@ -1,0 +1,28 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+string numeroATexto(int n) {
+    string nombres[] = {
+        "CERO", "UNO", "DOS", "TRES", "CUATRO",
+        "CINCO", "SEIS", "SIETE", "OCHO", "NUEVE",
+        "DIEZ", "ONCE", "DOCE", "TRECE", "CATORCE",
+        "QUINCE", "DIECISEIS", "DIECISIETE", "DIECIOCHO",
+        "DIECINUEVE", "VEINTE"
+    };
+
+    if (n < 0 || n > 20)
+        return "Fuera de rango";
+    return nombres[n];
+}
+
+int main() {
+    int n;
+    cout << "Ingrese un numero: ";
+    cin >> n;
+
+    string texto = numeroATexto(n);
+    cout << "Texto: " << texto << endl;
+
+    return 0;
+}
