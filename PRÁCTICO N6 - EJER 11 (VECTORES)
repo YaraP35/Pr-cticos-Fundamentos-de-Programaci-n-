@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+void contarValores(float vec[], int n, int &positivos, int &negativos, int &ceros) {
+    positivos = 0;
+    negativos = 0;
+    ceros = 0;
+    
+    for (int i = 0; i < n; i++) {
+        if (vec[i] > 0) {
+            positivos++;
+        } else if (vec[i] < 0) {
+            negativos++;
+        } else {
+            ceros++;
+        }
+    }
+}
+
+int main() {
+    int n;
+    cout << "Cantidad de elementos: ";
+    cin >> n;
+    
+    float vec[100];
+    cout << "Ingrese los elementos:\n";
+    for (int i = 0; i < n; i++) {
+        cin >> vec[i];
+    }
+    
+    int pos, neg, ceros;
+    contarValores(vec, n, pos, neg, ceros);
+    
+    cout << "Positivos: " << pos << endl;
+    cout << "Negativos: " << neg << endl;
+    cout << "Ceros: " << ceros << endl;
+    
+    return 0;
+}
