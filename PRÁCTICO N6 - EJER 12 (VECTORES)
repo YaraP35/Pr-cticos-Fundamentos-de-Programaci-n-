@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+
+void eliminarDuplicados(float vec[], int &n) {
+    int nuevoTam = 0;
+    
+    for (int i = 0; i < n; i++) {
+        bool duplicado = false;
+        for (int j = 0; j < nuevoTam; j++) {
+            if (vec[i] == vec[j]) {
+                duplicado = true;
+                break;
+            }
+        }
+        if (!duplicado) {
+            vec[nuevoTam] = vec[i];
+            nuevoTam++;
+        }
+    }
+    
+    n = nuevoTam; 
+}
+
+int main() {
+    int n;
+    cout << "Cantidad de elementos: ";
+    cin >> n;
+    
+    float vec[100];
+    cout << "Ingrese los elementos:\n";
+    for (int i = 0; i < n; i++) {
+        cin >> vec[i];
+    }
+    
+    eliminarDuplicados(vec, n);
+    
+    cout << "Vector sin duplicados:\n";
+    for (int i = 0; i < n; i++) {
+        cout << vec[i] << " ";
+    }
+    cout << endl;
+    
+    return 0;
+}
