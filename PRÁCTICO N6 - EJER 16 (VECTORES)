@@ -1,0 +1,115 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+void ingresarAlumno(string alumnos[], float notas[], int &n) {
+    cout << "Ingrese nombre del alumno: ";
+    cin >> alumnos[n];
+    cout << "Ingrese nota: ";
+    cin >> notas[n];
+    n++;
+    cout << "Alumno ingresado bien.\n";
+}
+
+void listarAlumnos(string alumnos[], float notas[], int n) {
+    if (n == 0) {
+        cout << "No hay alumnos registrados.\n";
+        return;
+    }
+    cout << "\nLista de alumnos:\n";
+    for (int i = 0; i < n; i++) {
+        cout << i + 1 << ". " << alumnos[i] << " - Nota: " << notas[i] << endl;
+    }
+}
+
+void ordenarAlfabeticamente(string alumnos[], float notas[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (alumnos[i] > alumnos[j]) {
+                string tempNombre = alumnos[i];
+                alumnos[i] = alumnos[j];
+                alumnos[j] = tempNombre;
+                
+                float tempNota = notas[i];
+                notas[i] = notas[j];
+                notas[j] = tempNota;
+            }
+        }
+    }
+    cout << "Alumnos ordenados alfabeticamente.\n";
+}
+
+void mejorNota(string alumnos[], float notas[], int n) {
+    if (n == 0) {
+        cout << "No hay alumnos registrados.\n";
+        return;
+    }
+    
+    float mejor = notas[0];
+    int pos = 0;
+    for (int i = 1; i < n; i++) {
+        if (notas[i] > mejor) {
+            mejor = notas[i];
+            pos = i;
+        }
+    }
+    cout << "Mejor nota: " << alumnos[pos] << " con " << mejor << endl;
+}
+
+void promedioNotas(float notas[], int n) {
+    if (n == 0) {
+        cout << "No hay alumnos registrados.\n";
+        return;
+    }
+    
+    float suma = 0;
+    for (int i = 0; i < n; i++) {
+        suma += notas[i];
+    }
+    float promedio = suma / n;
+    cout << "Promedio de notas: " << promedio << endl;
+}
+
+int main() {
+    string alumnos[100];
+    float notas[100];
+    int n = 0;
+    int opcion;
+    
+    do {
+        cout << "\n=== MENU DE ALUMNOS ===\n";
+        cout << "1. Ingresar un alumno y su nota\n";
+        cout << "2. Listar los alumnos\n";
+        cout << "3. Ordenar alfabeticamente\n";
+        cout << "4. Sacar la mejor nota\n";
+        cout << "5. Sacar el promedio de notas\n";
+        cout << "0. Salir\n";
+        cout << "Opcion: ";
+        cin >> opcion;
+        
+        switch (opcion) {
+            case 1:
+                ingresarAlumno(alumnos, notas, n);
+                break;
+            case 2:
+                listarAlumnos(alumnos, notas, n);
+                break;
+            case 3:
+                ordenarAlfabeticamente(alumnos, notas, n);
+                break;
+            case 4:
+                mejorNota(alumnos, notas, n);
+                break;
+            case 5:
+                promedioNotas(notas, n);
+                break;
+            case 0:
+                cout << "Saliendo del programa...\n";
+                break;
+            default:
+                cout << "Opcion invalida.\n";
+        }
+    } while (opcion != 0);
+    
+    return 0;
+}
