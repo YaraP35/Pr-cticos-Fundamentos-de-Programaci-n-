@@ -1,0 +1,32 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+float mayorDiferenciaConsecutiva(float A[], int n) {
+    if (n < 2) return 0; 
+
+    float maxDif = fabs(A[1] - A[0]);
+    for (int i = 1; i < n - 1; i++) {
+        float dif = fabs(A[i+1] - A[i]);
+        if (dif > maxDif)
+            maxDif = dif;
+    }
+    return maxDif;
+}
+
+int main() {
+    int n;
+    cout << "Cantidad de elementos: ";
+    cin >> n;
+
+    float A[100];
+    for (int i = 0; i < n; i++) {
+        cout << "A[" << i << "] = ";
+        cin >> A[i];
+    }
+
+    float mayor = mayorDiferenciaConsecutiva(A, n);
+    cout << "Mayor diferencia entre elementos consecutivos: " << mayor << endl;
+
+    return 0;
+}
