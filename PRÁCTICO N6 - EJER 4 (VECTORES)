@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+
+void revertir(float vec[], float vecRevertido[], int n) {
+    for (int i = 0; i < n; i++) {
+        vecRevertido[i] = vec[n - 1 - i];
+    }
+}
+
+int main() {
+    int n;
+    cout << "Ingrese cantidad de elementos: ";
+    cin >> n;
+    
+    float vec[n], vecRevertido[n];
+    cout << "Ingrese los elementos:\n";
+    for (int i = 0; i < n; i++) {
+        cin >> vec[i];
+    }
+    
+    revertir(vec, vecRevertido, n);
+    
+    cout << "Vector original: ";
+    for (int i = 0; i < n; i++) {
+        cout << vec[i] << " ";
+    }
+    cout << "\nVector revertido: ";
+    for (int i = 0; i < n; i++) {
+        cout << vecRevertido[i] << " ";
+    }
+    cout << endl;
+    
+    return 0;
+}
