@@ -1,0 +1,33 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+void leerCadenas(string &cadena1, string &cadena2) {
+    cout << "Ingrese la primera cadena: ";
+    getline(cin, cadena1);
+    
+    cout << "Ingrese la segunda cadena: ";
+    getline(cin, cadena2);
+}
+
+string mezclarCadenas(string cadena1, string cadena2) {
+    string resultado = cadena1 + cadena2;
+    return resultado;
+}
+
+void mostrarResultado(string cadena1, string cadena2, string mezcla) {
+    cout << "\nCadena 1: " << cadena1 << endl;
+    cout << "Cadena 2: " << cadena2 << endl;
+    cout << "Resultado: " << mezcla << endl;
+}
+
+int main() {
+    string cadena1, cadena2;
+    string cadenaMezclada;
+    
+    leerCadenas(cadena1, cadena2);
+    cadenaMezclada = mezclarCadenas(cadena1, cadena2);
+    mostrarResultado(cadena1, cadena2, cadenaMezclada);
+    
+    return 0;
+}
