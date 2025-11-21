@@ -1,0 +1,41 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+void leerTexto(string &texto) {
+    cout << "Ingrese un texto: ";
+    getline(cin, texto);
+}
+
+string convertirPrimerasMayusculas(string texto) {
+    bool inicioPalabra = true;
+
+    for (int i = 0; i < (int)texto.length(); i++) {
+        if (texto[i] == ' ') {
+            inicioPalabra = true;
+        } else {
+            if (inicioPalabra) {
+                texto[i] = toupper(texto[i]);
+                inicioPalabra = false;
+            }
+        }
+    }
+
+    return texto;
+}
+
+void mostrarTexto(string textoOriginal, string textoProcesado) {
+    cout << "Texto original:  " << textoOriginal << endl;
+    cout << "Texto convertido: " << textoProcesado << endl;
+}
+
+int main() {
+    string texto;
+    string textoConvertido;
+
+    leerTexto(texto);
+    textoConvertido = convertirPrimerasMayusculas(texto);
+    mostrarTexto(texto, textoConvertido);
+
+    return 0;
+}
