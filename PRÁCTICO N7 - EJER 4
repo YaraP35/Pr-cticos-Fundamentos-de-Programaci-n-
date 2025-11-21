@@ -1,0 +1,44 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+void leerTexto(string &texto) {
+    cout << "Ingrese una palabra o frase: ";
+    getline(cin, texto);
+}
+
+string invertirTexto(string texto) {
+    string invertido = "";
+    
+    for (int i = texto.length() - 1; i >= 0; i--) {
+        invertido += texto[i];
+    }
+    
+    return invertido;
+}
+
+bool esCapicua(string original, string invertido) {
+    return original == invertido;
+}
+
+void mostrarResultado(string original, string invertido) {
+    cout << "\nTexto original: " << original << endl;
+    cout << "Texto invertido: " << invertido << endl;
+    
+    if (esCapicua(original, invertido)) {
+        cout << "Es CAPICUA" << endl;
+    } else {
+        cout << "NO es capicua" << endl;
+    }
+}
+
+int main() {
+    string texto;
+    string textoInvertido;
+    
+    leerTexto(texto);
+    textoInvertido = invertirTexto(texto);
+    mostrarResultado(texto, textoInvertido);
+    
+    return 0;
+}
