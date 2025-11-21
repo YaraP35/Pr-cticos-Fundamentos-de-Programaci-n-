@@ -7,7 +7,6 @@ void leerTexto(string &texto) {
     getline(cin, texto);
 }
 
-
 string convertirMayusculas(string texto) {
     for (int i = 0; i < texto.length(); i++) {
         texto[i] = toupper(texto[i]);
@@ -15,16 +14,18 @@ string convertirMayusculas(string texto) {
     return texto;
 }
 
-void mostrarTexto(string texto) {
-    cout << "Texto en mayusculas: " << texto << endl;
+void mostrarTexto(string textoOriginal, string textoMayusculas) {
+    cout << "Texto original: " << textoOriginal << endl;
+    cout << "Texto en mayusculas: " << textoMayusculas << endl;
 }
 
 int main() {
     string texto;
+    string textoMayusculas;
     
     leerTexto(texto);
-    texto = convertirMayusculas(texto);
-    mostrarTexto(texto);
+    textoMayusculas = convertirMayusculas(texto);
+    mostrarTexto(texto, textoMayusculas);
     
     return 0;
 }
