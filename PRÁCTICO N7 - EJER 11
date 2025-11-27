@@ -1,0 +1,50 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+void leerDatos(string &cadena, int &posicion, int &longitud) {
+    cout << "Ingrese una cadena: ";
+    getline(cin, cadena);
+    
+    cout << "Ingrese la posicion de inicio: ";
+    cin >> posicion;
+    
+    cout << "Ingrese la longitud de la subcadena: ";
+    cin >> longitud;
+}
+
+string SubCadena(string cadena, int p, int n) {
+    if (p < 0 || p >= (int)cadena.length()) {
+        return "";  // posición inválida
+    }
+    
+    if (p + n > (int)cadena.length()) {
+        n = cadena.length() - p; 
+    }
+    
+    string resultado = "";
+    for (int i = 0; i < n; i++) {
+        resultado += cadena[p + i];
+    }
+    
+    return resultado;
+}
+
+void mostrarResultado(string cadena, int posicion, int longitud, string subcadena) {
+    cout << "\nCadena original: \"" << cadena << "\"" << endl;
+    cout << "Posicion de inicio: " << posicion << endl;
+    cout << "Longitud pedida: " << longitud << endl;
+    cout << "Subcadena resultante: \"" << subcadena << "\"" << endl;
+}
+
+int main() {
+    string cadena;
+    int posicion, longitud;
+    string resultado;
+    
+    leerDatos(cadena, posicion, longitud);
+    resultado = SubCadena(cadena, posicion, longitud);
+    mostrarResultado(cadena, posicion, longitud, resultado);
+    
+    return 0;
+}
