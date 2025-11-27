@@ -1,0 +1,41 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+void leerTexto(string &texto) {
+    cout << "Ingrese una palabra o texto: ";
+    getline(cin, texto);
+}
+
+string ordenarCaracteres(string texto) {
+    int n = texto.length();
+    
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - 1 - i; j++) {
+            if (texto[j] > texto[j + 1]) {
+                // Intercambiar caracteres
+                char temp = texto[j];
+                texto[j] = texto[j + 1];
+                texto[j + 1] = temp;
+            }
+        }
+    }
+    
+    return texto;
+}
+
+void mostrarResultado(string textoOriginal, string textoOrdenado) {
+    cout << "\nTexto original: " << textoOriginal << endl;
+    cout << "Texto ordenado: " << textoOrdenado << endl;
+}
+
+int main() {
+    string texto;
+    string textoOrdenado;
+    
+    leerTexto(texto);
+    textoOrdenado = ordenarCaracteres(texto);
+    mostrarResultado(texto, textoOrdenado);
+    
+    return 0;
+}
