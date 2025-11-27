@@ -1,0 +1,46 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+void leerPalabras(string &resultado, int n) {
+    string palabra;
+    resultado = ""; 
+    
+    cout << "Ingrese " << n << " palabras:\n";
+    
+    for (int i = 0; i < n; i++) {
+        cout << "Palabra " << (i + 1) << ": ";
+        cin >> palabra;
+        
+        if (i == 0) {
+            resultado = palabra;  
+        } else {
+            resultado = resultado + " " + palabra; 
+        }
+    }
+}
+
+string procesarTexto(string texto) {
+    return texto;  
+}
+
+
+void mostrarResultado(string texto) {
+    cout << "\nTexto final: " << texto << "." << endl;
+}
+
+int main() {
+    string textoFinal;
+    int n;
+    
+    cout << "¿Cuántas palabras desea ingresar? ";
+    cin >> n;
+    
+    cin.ignore();
+    
+    leerPalabras(textoFinal, n);
+    textoFinal = procesarTexto(textoFinal);
+    mostrarResultado(textoFinal);
+    
+    return 0;
+}
