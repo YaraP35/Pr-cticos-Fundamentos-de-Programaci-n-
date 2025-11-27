@@ -1,0 +1,42 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+void leerTexto(string &texto) {
+    cout << "Ingrese un texto: ";
+    getline(cin, texto);
+}
+
+bool esVocal(char c) {
+    c = tolower(c);
+    
+    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+}
+
+string eliminarVocales(string texto) {
+    string resultado = "";
+    
+    for (int i = 0; i < texto.length(); i++) {
+        if (!esVocal(texto[i])) {
+            resultado += texto[i];
+        }
+    }
+    
+    return resultado;
+}
+
+void mostrarResultado(string textoOriginal, string textoSinVocales) {
+    cout << "\nTexto original: " << textoOriginal << endl;
+    cout << "Texto sin vocales: " << textoSinVocales << endl;
+}
+
+int main() {
+    string texto;
+    string textoProcesado;
+    
+    leerTexto(texto);
+    textoProcesado = eliminarVocales(texto);
+    mostrarResultado(texto, textoProcesado);
+    
+    return 0;
+}
