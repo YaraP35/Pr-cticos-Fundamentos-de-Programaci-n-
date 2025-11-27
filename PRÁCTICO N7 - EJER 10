@@ -1,0 +1,57 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+void leerTexto(string &texto) {
+    cout << "Ingrese un texto: ";
+    getline(cin, texto);
+}
+
+bool esVocal(char c) {
+    c = tolower(c);
+    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+}
+
+int contarVocalesJuntas(string texto, string &vocalesEncontradas) {
+    int contador = 0;
+    vocalesEncontradas = "";  
+    
+    for (int i = 0; i < (int)texto.length() - 1; i++) {
+        if (esVocal(texto[i]) && esVocal(texto[i + 1])) {
+            contador++;
+            
+            string par = "";
+            par += texto[i];
+            par += texto[i + 1];
+            
+            if (contador == 1) {
+                vocalesEncontradas = par;
+            } else {
+                vocalesEncontradas = vocalesEncontradas + ", " + par;
+            }
+            
+            i++;  // esto evita contar "ueo" como dos pares
+        }
+    }
+    
+    return contador;
+}
+
+void mostrarResultado(int cantidad, string vocales) {
+    cout << "\nResultado: " << cantidad << " par(es) de vocales juntas" << endl;
+    if (cantidad > 0) {
+        cout << "Pares encontrados: (" << vocales << ")" << endl;
+    }
+}
+
+int main() {
+    string texto;
+    string vocalesJuntas;
+    int cantidad;
+    
+    leerTexto(texto);
+    cantidad = contarVocalesJuntas(texto, vocalesJuntas);
+    mostrarResultado(cantidad, vocalesJuntas);
+    
+    return 0;
+}
