@@ -1,0 +1,76 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+void leerConjunto(string &conjunto, char nombre) {
+    cout << "Ingrese caracteres para el conjunto " << nombre << " (sin espacios, terminar con punto '.'): ";
+    getline(cin, conjunto);
+    
+    if (!conjunto.empty() && conjunto.back() == '.') {
+        conjunto.pop_back();
+    }
+}
+
+bool estaEnConjunto(char c, string conjunto) {
+    for (int i = 0; i < conjunto.length(); i++) {
+        if (conjunto[i] == c) {
+            return true;
+        }
+    }
+    return false;
+}
+
+string interseccionConjuntos(string conjuntoA, string conjuntoB) {
+    string interseccion = "";
+    
+    for (int i = 0; i < conjuntoA.length(); i++) {
+        char elemento = conjuntoA[i];
+        
+        if (estaEnConjunto(elemento, conjuntoB)) {
+            if (!estaEnConjunto(elemento, interseccion)) {
+                interseccion += elemento;
+            }
+        }
+    }
+    
+    return interseccion;
+}
+
+void mostrarResultados(string conjuntoA, string conjuntoB, string interseccion) {
+    cout << "\nConjunto A = {";
+    for (int i = 0; i < conjuntoA.length(); i++) {
+        cout << conjuntoA[i];
+        if (i < conjuntoA.length() - 1) cout << ", ";
+    }
+    cout << "}\n";
+    
+    cout << "Conjunto B = {";
+    for (int i = 0; i < conjuntoB.length(); i++) {
+        cout << conjuntoB[i];
+        if (i < conjuntoB.length() - 1) cout << ", ";
+    }
+    cout << "}\n";
+    
+    cout << "Interseccion C = {";
+    for (int i = 0; i < interseccion.length(); i++) {
+        cout << interseccion[i];
+        if (i < interseccion.length() - 1) cout << ", ";
+    }
+    cout << "}\n";
+}
+
+int main() {
+    string conjuntoA, conjuntoB;
+    string conjuntoC;
+    
+    cout << "=== INTERSECCION DE CONJUNTOS ===\n\n";
+    
+    leerConjunto(conjuntoA, 'A');
+    leerConjunto(conjuntoB, 'B');
+    
+    conjuntoC = interseccionConjuntos(conjuntoA, conjuntoB);
+    
+    mostrarResultados(conjuntoA, conjuntoB, conjuntoC);
+    
+    return 0;
+}
