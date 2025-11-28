@@ -1,0 +1,56 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+void leerDatos(string &cadena, string &subcadena) {
+    cout << "Cadena: ";
+    getline(cin, cadena);
+    
+    cout << "Subcadena: ";
+    getline(cin, subcadena);
+}
+
+int BuscarSubCadena(string subcadena, string cadena) {
+    if (subcadena.length() > cadena.length()) {
+        return -1;
+    }
+    
+    for (int i = 0; i <= (int)cadena.length() - (int)subcadena.length(); i++) {
+        bool encontrado = true;
+        
+        for (int j = 0; j < subcadena.length(); j++) {
+            if (cadena[i + j] != subcadena[j]) {
+                encontrado = false;
+                break;
+            }
+        }
+        
+        if (encontrado) {
+            return i;  
+        }
+    }
+    
+    return -1;  
+}
+
+void mostrarResultado(string cadena, string subcadena, int posicion) {
+    cout << "\nCadena: \"" << cadena << "\"" << endl;
+    cout << "Subcadena: \"" << subcadena << "\"" << endl;
+    
+    if (posicion == -1) {
+        cout << "Resultado: -1 (no se encontro la subcadena)" << endl;
+    } else {
+        cout << "Resultado: " << posicion << " (la subcadena empieza en la posicion " << posicion << ")" << endl;
+    }
+}
+
+int main() {
+    string cadena, subcadena;
+    int posicion;
+    
+    leerDatos(cadena, subcadena);
+    posicion = BuscarSubCadena(subcadena, cadena);
+    mostrarResultado(cadena, subcadena, posicion);
+    
+    return 0;
+}
