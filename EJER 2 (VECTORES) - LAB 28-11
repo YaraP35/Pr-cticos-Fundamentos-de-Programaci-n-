@@ -1,0 +1,58 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void leerVector(vector<double> &vec, int n) {
+    cout << "Ingrese " << n << " valores numericos:\n";
+    vec.resize(n);
+
+    for (int i = 0; i < n; i++) {
+        cout << "Valor " << (i + 1) << ": ";
+        cin >> vec[i];
+    }
+}
+
+
+double encontrarMinimo(vector<double> vec) {
+    double minimo = vec[0];
+
+    for (int i = 1; i < vec.size(); i++) {
+        if (vec[i] < minimo) {
+            minimo = vec[i];
+        }
+    }
+
+    return minimo;
+}
+
+
+void mostrarResultado(vector<double> vec, double minimo) {
+    cout << "\nVector ingresado: {";
+    for (int i = 0; i < vec.size(); i++) {
+        cout << vec[i];
+        if (i < vec.size() - 1) cout << ", ";
+    }
+    cout << "}\n";
+
+    cout << "El valor minimo es: " << minimo << endl;
+}
+
+int main() {
+    vector<double> numeros;
+    int cantidad;
+    double minimo;
+
+    cout << "nro valores a ingresar: ";
+    cin >> cantidad;
+
+    if (cantidad <= 0) {
+        cout << "Debe ingresar al menos un valor.\n";
+        return 1;
+    }
+
+    leerVector(numeros, cantidad);
+    minimo = encontrarMinimo(numeros);
+    mostrarResultado(numeros, minimo);
+
+    return 0;
+}
