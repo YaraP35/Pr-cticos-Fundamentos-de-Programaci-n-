@@ -1,0 +1,57 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+void leerDatos(string &texto, int &desplazamiento) {
+    cout << "Ingrese el texto a codificar: ";
+    getline(cin, texto);
+    
+    cout << "Ingrese el desplazamiento (numero entero): ";
+    cin >> desplazamiento;
+}
+
+char codificarLetra(char letra, int desplazamiento) {
+    if (letra >= 'a' && letra <= 'z') {
+        int posicion = letra - 'a';  
+        int nuevaPosicion = (posicion + desplazamiento) % 26;
+        if (nuevaPosicion < 0) nuevaPosicion += 26; 
+        return 'a' + nuevaPosicion;
+    }
+    
+    if (letra >= 'A' && letra <= 'Z') {
+        int posicion = letra - 'A';
+        int nuevaPosicion = (posicion + desplazamiento) % 26;
+        if (nuevaPosicion < 0) nuevaPosicion += 26;
+        return 'A' + nuevaPosicion;
+    }
+    
+    return letra;
+}
+
+string Codifica(string texto, int desplazamiento) {
+    string resultado = "";
+    
+    for (int i = 0; i < texto.length(); i++) {
+        resultado += codificarLetra(texto[i], desplazamiento);
+    }
+    
+    return resultado;
+}
+
+void mostrarResultado(string textoOriginal, int desplazamiento, string textoCodificado) {
+    cout << "\nTexto original: \"" << textoOriginal << "\"" << endl;
+    cout << "Desplazamiento: " << desplazamiento << endl;
+    cout << "Texto codificado: \"" << textoCodificado << "\"" << endl;
+}
+
+int main() {
+    string texto;
+    int desplazamiento;
+    string textoCodificado;
+    
+    leerDatos(texto, desplazamiento);
+    textoCodificado = Codifica(texto, desplazamiento);
+    mostrarResultado(texto, desplazamiento, textoCodificado);
+    
+    return 0;
+}
