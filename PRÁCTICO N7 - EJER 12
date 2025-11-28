@@ -1,0 +1,41 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+void leerDatos(string &texto, char &caracter) {
+    cout << "Texto: ";
+    getline(cin, texto);
+    
+    cout << "Que caracter borra?: ";
+    cin >> caracter;
+}
+
+string BorraCaracterDeCadena(string texto, char caracter) {
+    string resultado = "";
+    
+    for (int i = 0; i < texto.length(); i++) {
+        if (texto[i] != caracter) {
+            resultado += texto[i];
+        }
+    }
+    
+    return resultado;
+}
+
+void mostrarResultado(string textoOriginal, char caracter, string textoModificado) {
+    cout << "\nTexto original: \"" << textoOriginal << "\"" << endl;
+    cout << "Caracter borrado: '" << caracter << "'" << endl;
+    cout << "Texto resultante: \"" << textoModificado << "\"" << endl;
+}
+
+int main() {
+    string texto;
+    char caracter;
+    string textoResultado;
+    
+    leerDatos(texto, caracter);
+    textoResultado = BorraCaracterDeCadena(texto, caracter);
+    mostrarResultado(texto, caracter, textoResultado);
+    
+    return 0;
+}
