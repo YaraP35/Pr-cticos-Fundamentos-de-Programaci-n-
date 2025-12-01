@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main() {
+    int N, complemento, digito, multiplicador;
+
+    printf("Ingrese un numero: ");
+    scanf("%d", &N);
+
+    complemento = 0;
+    multiplicador = 1;
+
+    while (N > 0) {
+        digito = N % 10;
+        complemento = complemento + (9 - digito) * multiplicador;
+        multiplicador = multiplicador * 10;
+        N = N / 10;
+    }
+
+    printf("\nComplemento a 9: %d\n", complemento);
+
+    return 0;
+}
