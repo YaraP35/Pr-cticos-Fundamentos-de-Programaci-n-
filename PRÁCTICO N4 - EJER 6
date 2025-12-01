@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    float a, b, c, discriminante, x1, x2, parte_real, parte_imaginaria;
+    
+    printf("Ingrese coeficientes a, b, c: ");
+    scanf("%f %f %f", &a, &b, &c);
+    
+    if (a == 0) {
+        if (b == 0) {
+            if (c == 0) {
+                printf("Infinitas soluciones\n");
+            } else {
+                printf("No hay solucion\n");
+            }
+        } else {
+            printf("Solucion lineal: x = %.2f\n", -c/b);
+        }
+        return 0;
+    }
+    
+    discriminante = b*b - 4*a*c;
+    
+    if (discriminante > 0) {
+        x1 = (-b + sqrt(discriminante)) / (2*a);
+        x2 = (-b - sqrt(discriminante)) / (2*a);
+        printf("Dos soluciones reales: x1 = %.2f, x2 = %.2f\n", x1, x2);
+    } else if (discriminante == 0) {
+        x1 = -b / (2*a);
+        printf("Una solucion real: x = %.2f\n", x1);
+    } else {
+        parte_real = -b / (2*a);
+        parte_imaginaria = sqrt(-discriminante) / (2*a);
+        printf("Soluciones complejas: x1 = %.2f + %.2fi, x2 = %.2f - %.2fi\n", 
+               parte_real, parte_imaginaria, parte_real, parte_imaginaria);
+    }
+    
+    return 0;
+}
