@@ -1,0 +1,52 @@
+#include <stdio.h>
+
+int main() {
+    float parcial1, parcial2, practico, final;
+    int faltas;
+    float promedio, nota_final;
+    char continuar;
+    
+    do {
+        printf("=== CALCULO DE NOTA FINAL ===\n");
+        
+        printf("Ingrese nota del primer parcial (0-100): ");
+        scanf("%f", &parcial1);
+        
+        printf("Ingrese nota del segundo parcial (0-100): ");
+        scanf("%f", &parcial2);
+        
+        printf("Ingrese nota del examen practico (0-100): ");
+        scanf("%f", &practico);
+        
+        printf("Ingrese numero de faltas: ");
+        scanf("%d", &faltas);
+        
+        promedio = (parcial1 + parcial2) / 2;
+        printf("Promedio de parciales: %.2f\n", promedio);
+        
+        if (faltas > 9.6) { // 20% de 48 clases
+            final = 0;
+            printf("Examen final anulado por exceso de faltas\n");
+        } else {
+            printf("Ingrese nota del examen final (0-100): ");
+            scanf("%f", &final);
+        }
+        
+        nota_final = promedio * 0.4 + practico * 0.2 + final * 0.4;
+        
+        printf("Nota final: %.2f\n", nota_final);
+        
+        if (nota_final >= 51) {
+            printf("APROBADO\n");
+        } else {
+            printf("REPROBADO\n");
+        }
+        
+        printf("\n¿Calcular nota para otro alumno? (s/n): ");
+        scanf(" %c", &continuar);
+        printf("\n");
+        
+    } while (continuar == 's' || continuar == 'S');
+    
+    return 0;
+}
