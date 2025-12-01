@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    float a, b, c, discriminante, x1, x2;
+    
+    printf("Ingrese coeficientes a, b, c: ");
+    scanf("%f %f %f", &a, &b, &c);
+    
+    if (a == 0) {
+        printf("No es una ecuacion cuadratica\n");
+        return 0;
+    }
+    
+    discriminante = b*b - 4*a*c;
+    
+    if (discriminante >= 0) {
+        x1 = (-b + sqrt(discriminante)) / (2*a);
+        x2 = (-b - sqrt(discriminante)) / (2*a);
+        printf("Soluciones: x1 = %.2f, x2 = %.2f\n", x1, x2);
+    } else {
+        printf("No hay soluciones reales\n");
+    }
+    
+    return 0;
+}
