@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main() {
+    int dia, mes, anio;
+    
+    printf("Ingrese fecha (dia mes anio): ");
+    scanf("%d %d %d", &dia, &mes, &anio);
+    
+    // Verificar primavera (21 sep al 20 dic)
+    if ((mes == 9 && dia >= 21) || (mes == 10) || (mes == 11) || (mes == 12 && dia <= 20)) {
+        printf("Primavera\n");
+    }
+    // Verificar verano (21 dic al 20 mar)
+    else if ((mes == 12 && dia >= 21) || (mes == 1) || (mes == 2) || (mes == 3 && dia <= 20)) {
+        printf("Verano\n");
+    }
+    // Verificar otoño (21 mar al 20 jun)
+    else if ((mes == 3 && dia >= 21) || (mes == 4) || (mes == 5) || (mes == 6 && dia <= 20)) {
+        printf("Otono\n");
+    }
+    // Invierno (21 jun al 20 sep)
+    else {
+        printf("Invierno\n");
+    }
+    
+    return 0;
+}
