@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int main() {
+    int ham, ham_queso, papas, sodas;
+    float total;
+    
+    printf("=== MENU RESTAURANTE ===\n");
+    printf("Hamburguesas (3Bs) - Cantidad: ");
+    scanf("%d", &ham);
+    
+    printf("Hamburguesas con queso (5Bs) - Cantidad: ");
+    scanf("%d", &ham_queso);
+    
+    printf("Papas fritas (2Bs) - Cantidad: ");
+    scanf("%d", &papas);
+    
+    printf("Sodas (2.5Bs) - Cantidad: ");
+    scanf("%d", &sodas);
+    
+    printf("\n=== BOLETA ===\n");
+    printf("ITEM\t\tCANTIDAD\tTOTAL PARCIAL\n");
+    printf("Hamburguesas\t%d\t\t%.2f\n", ham, ham*3.0);
+    printf("Hamburguesas Q\t%d\t\t%.2f\n", ham_queso, ham_queso*5.0);
+    printf("Papas fritas\t%d\t\t%.2f\n", papas, papas*2.0);
+    printf("Sodas\t\t%d\t\t%.2f\n", sodas, sodas*2.5);
+    
+    total = ham*3.0 + ham_queso*5.0 + papas*2.0 + sodas*2.5;
+    printf("TOTAL\t\t\t\t%.2f\n", total);
+    
+    return 0;
+}
