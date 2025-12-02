@@ -1,0 +1,13 @@
+#include <stdio.h>
+#include <string.h>
+int main() {
+    int h, m, s, hora12;
+    char periodo[3];
+    printf("Ingrese hora (HH MM SS): ");
+    scanf("%d %d %d", &h, &m, &s);
+    hora12 = h;
+    if (h >= 12) { strcpy(periodo, "PM"); if (h > 12) hora12 -= 12; }
+    else { strcpy(periodo, "AM"); if (h == 0) hora12 = 12; }
+    printf("%d:%02d:%02d %s\n", hora12, m, s, periodo);
+    return 0;
+}
