@@ -1,0 +1,13 @@
+#include <stdio.h>
+int main(){
+int n,i;long long a=1,b=1,c;
+printf("Posicion: ");
+scanf("%d",&n);
+if(n<=2)printf("F(%d)=1\n",n);
+else{
+for(i=3;i<=n;i++){c=a+b;a=b;b=c;
+}
+printf("F(%d)=%lld\n",n,b);
+}
+return 0;
+}
