@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    double C, T;
+    int N;
+    double montoFinal;
+    
+    printf("=== INTERES COMPUESTO ===\n");
+    printf("Capital inicial (C): ");
+    scanf("%lf", &C);
+    printf("Tasa de interes anual (T en %%): ");
+    scanf("%lf", &T);
+    printf("Numero de anos (N): ");
+    scanf("%d", &N);
+    
+    montoFinal = C * pow(1 + T/100.0, N);
+    
+    printf("\nResultado:\n");
+    printf("Capital inicial : %.2lf Bs\n", C);
+    printf("Tasa            : %.2lf %% anual\n", T);
+    printf("Periodo         : %d anos\n", N);
+    printf("Monto final     : %.2lf Bs\n", montoFinal);
+    printf("Interes ganado  : %.2lf Bs\n", montoFinal - C);
+    
+    return 0;
+}
