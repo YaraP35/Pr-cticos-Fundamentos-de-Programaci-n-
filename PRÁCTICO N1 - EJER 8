@@ -1,0 +1,49 @@
+#include <stdio.h>
+
+int main() {
+    double A, B, C, D, E, F;
+    double det, detX, detY;
+    
+    printf("=== SISTEMA DE ECUACIONES 2x2 ===\n");
+    printf("Forma: Ax + By = C\n");
+    printf("       Dx + Ey = F\n\n");
+    
+    printf("Ingrese A: "); scanf("%lf", &A);
+    printf("Ingrese B: "); scanf("%lf", &B);
+    printf("Ingrese C: "); scanf("%lf", &C);
+    printf("Ingrese D: "); scanf("%lf", &D);
+    printf("Ingrese E: "); scanf("%lf", &E);
+    printf("Ingrese F: "); scanf("%lf", &F);
+    
+    // Determinante principal
+    det = A*E - B*D;
+    
+    printf("\n--- ANALISIS ---\n");
+    
+    if (det != 0) {
+        // Caso 1: Solucion unica (determinante != 0)
+        detX = C*E - B*F;
+        detY = A*F - C*D;
+        
+        double x = detX / det;
+        double y = detY / det;
+        
+        printf("Solucion UNICA:\n");
+        printf("x = %.4lf\n", x);
+        printf("y = %.4lf\n", y);
+        
+    } else {
+        // det == 0 → o infinitas soluciones o ninguna
+        if ((A*D == B*C) && (A*F == C*D) && (B*F == C*E)) {
+            // Proporcionales en todos los coeficientes → infinitas soluciones
+            printf("INFINITAS SOLUCIONES (ecuaciones dependientes)\n");
+            printf("Las dos ecuaciones representan la misma recta.\n");
+        } else {
+            // Al menos un par no es proporcional → sin solucion
+            printf("NO EXISTE SOLUCION (ecuaciones inconsistentes)\n");
+            printf("Las rectas son paralelas y distintas.\n");
+        }
+    }
+    
+    return 0;
+}
