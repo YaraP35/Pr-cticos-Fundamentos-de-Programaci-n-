@@ -1,0 +1,11 @@
+#include <stdio.h>
+int main() {
+    int d,m,a;
+    printf("Fecha (dd mm aaaa): ");
+    scanf("%d %d %d",&d,&m,&a);
+    if((m==9&&d>=21)||m==10||m==11||(m==12&&d<21)) printf("PRIMAVERA\n");
+    else if((m==12&&d>=21)||m==1||m==2||(m==3&&d<21)) printf("VERANO\n");
+    else if((m==3&&d>=21)||m==4||m==5||(m==6&&d<21)) printf("OTONO\n");
+    else printf("INVIERNO\n");
+    return 0;
+}
