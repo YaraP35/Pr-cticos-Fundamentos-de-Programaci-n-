@@ -1,0 +1,12 @@
+#include <stdio.h>
+int main() {
+    int ch, chq, papas, soda;
+    double total;
+    printf("Hamburguesas (3 Bs): "); scanf("%d",&ch);
+    printf("Hamb. con queso (5 Bs): "); scanf("%d",&chq);
+    printf("Papas fritas (2 Bs): "); scanf("%d",&papas);
+    printf("Soda (2.5 Bs): "); scanf("%d",&soda);
+    total = ch*3.0 + chq*5.0 + papas*2.0 + soda*2.5;
+    printf("\nTOTAL A PAGAR: %.2lf Bs\n", total);
+    return 0;
+}
