@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <math.h>
+int main() {
+    double x, suma = 0, fact;
+    int n, k;
+    printf("X = "); scanf("%lf", &x);
+    printf("n (impar) = "); scanf("%d", &n);
+    if(n % 2 == 0) {
+        printf("n debe ser impar\n");
+        return 0;
+    }
+    for(k = 1; k <= n; k += 2) {
+        fact = 1;
+        for(int i = 1; i <= k; i++) fact *= i;
+        if((k-1)/2 % 2 == 0) suma += pow(x, k) / fact;
+        else suma -= pow(x, k) / fact;
+    }
+    printf("S = %.6lf\n", suma);
+    return 0;
+}
