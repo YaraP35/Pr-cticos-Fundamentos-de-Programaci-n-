@@ -1,0 +1,14 @@
+#include <stdio.h>
+#include <math.h>
+int main(){
+double x,s=0,f=1;
+int n,k;
+printf("X: ");s
+canf("%lf",&x);
+printf("n: ");
+scanf("%d",&n);
+for(k=1;k<=n;k++){f*=k;s+=(k%2)?pow(x,k)/f:-pow(x,k)/f;
+}
+printf("S = %.6lf\n",s);
+return 0;
+}
