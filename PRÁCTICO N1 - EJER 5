@@ -1,0 +1,27 @@
+#include <stdio.h>
+int main() {
+    char nombre[50];
+    double horas, precioHora, salarioBruto, impuesto = 0, salarioNeto;
+    
+    printf("Nombre del trabajador: ");
+    scanf("%s", nombre);
+    printf("Horas trabajadas al mes: ");
+    scanf("%lf", &horas);
+    printf("Precio por hora: ");
+    scanf("%lf", &precioHora);
+    
+    salarioBruto = horas * precioHora;
+    
+    if (salarioBruto > 8272) {
+        impuesto = salarioBruto * 0.13;
+    }
+    
+    salarioNeto = salarioBruto - impuesto;
+    
+    printf("\n--- RESUMEN ---\n");
+    printf("Salario bruto: %.2lf Bs\n", salarioBruto);
+    printf("Impuesto RC-IVA: %.2lf Bs\n", impuesto);
+    printf("Salario neto: %.2lf Bs\n", salarioNeto);
+    
+    return 0;
+}
