@@ -1,0 +1,9 @@
+#include <stdio.h>
+int main(){
+int n,i,s=0;
+printf("N: ");
+scanf("%d",&n);f
+or(i=1;i<=n;i++)s+=(i%2)?i:-i;
+printf("S = %d\n",s);
+return 0;
+}
