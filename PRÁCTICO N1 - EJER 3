@@ -1,0 +1,13 @@
+#include <stdio.h>
+int main() {
+    double parciales, final, proyecto, notaFinal;
+    printf("Nota de los 3 parciales (sobre 40): ");
+    scanf("%lf", &parciales);
+    printf("Nota del examen final (sobre 40): ");
+    scanf("%lf", &final);
+    printf("Nota del proyecto final (sobre 20): ");
+    scanf("%lf", &proyecto);
+    notaFinal = parciales + final + proyecto;
+    printf("La nota final es: %.2lf / 100\n", notaFinal);
+    return 0;
+}
