@@ -1,0 +1,13 @@
+#include <stdio.h>
+int mcd(int a,int b){
+while(b){
+int t=b;b=a%b;a=t;
+}
+return a;
+}
+int main(){
+int a,b;printf("a b: ");
+scanf("%d%d",&a,&b);
+printf("MCM = %d\n",(a*b)/mcd(a,b));
+return 0;
+}
