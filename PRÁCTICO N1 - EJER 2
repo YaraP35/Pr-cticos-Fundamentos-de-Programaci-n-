@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <math.h>
+int main() {
+    double D, radio, pi = 3.14159265359;
+    printf("Ingrese el diametro de la esfera: ");
+    scanf("%lf", &D);
+    radio = D / 2.0;
+    double circunferencia = 2 * pi * radio;
+    double area = 4 * pi * radio * radio;
+    double volumen = (4.0 / 3.0) * pi * pow(radio, 3);
+    printf("Circunferencia: %.4lf\n", circunferencia);
+    printf("Area: %.4lf\n", area);
+    printf("Volumen: %.4lf\n", volumen);
+    return 0;
+}
