@@ -1,0 +1,13 @@
+#include <stdio.h>
+int main() {
+    double peso;
+    printf("Peso de la carta (gramos): ");
+    scanf("%lf", &peso);
+    if(peso<=50) printf("Costo: Bs. 1.50\n");
+    else if(peso<=100) printf("Costo: Bs. 4.00\n");
+    else if(peso<=200) printf("Costo: Bs. 6.00\n");
+    else if(peso<=350) printf("Costo: Bs. 10.50\n");
+    else if(peso<=500) printf("Costo: Bs. 15.00\n");
+    else printf("NO PUEDE ENVIAR COMO CARTA\n");
+    return 0;
+}
