@@ -1,0 +1,16 @@
+#include <stdio.h>
+int main() {
+    int h1,m1,s1,h2,m2,s2, seg1,seg2,dif,h,m,s;
+    printf("Hora inicial (HH MM SS): ");
+    scanf("%d %d %d",&h1,&m1,&s1);
+    printf("Hora final (HH MM SS): ");
+    scanf("%d %d %d",&h2,&m2,&s2);
+    seg1 = h1*3600 + m1*60 + s1;
+    seg2 = h2*3600 + m2*60 + s2;
+    dif = seg2 - seg1;
+    h = dif / 3600;
+    m = (dif % 3600) / 60;
+    s = dif % 60;
+    printf("Diferencia: %d Hr %d Min %d Seg\n", h, m, s);
+    return 0;
+}
